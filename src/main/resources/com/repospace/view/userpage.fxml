@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.repospace.controller.UserPageController">
+   <content>
+      <VBox spacing="10.0">
+         <padding>
+            <Insets bottom="16.0" left="20.0" right="20.0" top="16.0" />
+         </padding>
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <Button fx:id="backButton" onAction="#handleBack" text="&lt; Back" />
+                  <Button fx:id="sponsorButton" onAction="#handleSponsor" text="Sponsor" />
+               </children>
+            </HBox>
+            <HBox spacing="16.0">
+               <children>
+                  <ImageView fx:id="pictureView" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="nameLabel" styleClass="title" text="Profile" />
+                        <Label fx:id="statusLabel" wrapText="true" />
+                        <Label fx:id="joinedLabel" wrapText="true" />
+                        <Label fx:id="bioLabel" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <FlowPane fx:id="badgeBox" hgap="8.0" vgap="8.0" />
+            <VBox fx:id="readmeSection" spacing="6.0">
+               <children>
+                  <Label text="README" />
+                  <VBox fx:id="readmeBox" spacing="8.0" styleClass="card" />
+               </children>
+            </VBox>
+            <VBox fx:id="languageSection" spacing="4.0">
+               <children>
+                  <Label text="Top languages" />
+                  <VBox fx:id="languageBox" spacing="2.0" styleClass="card" />
+               </children>
+            </VBox>
+            <VBox fx:id="pinnedSection" spacing="4.0">
+               <children>
+                  <Label text="Pinned repositories (double-click to open)" />
+                  <ListView fx:id="pinnedList" prefHeight="110.0" />
+               </children>
+            </VBox>
+            <Label fx:id="repoHeading" text="Repositories (double-click to open)" />
+            <ListView fx:id="repoList" prefHeight="150.0" />
+            <Label fx:id="projectHeading" text="Projects (double-click to open the board)" />
+            <ListView fx:id="projectList" prefHeight="110.0" />
+            <VBox fx:id="activitySection" spacing="4.0">
+               <children>
+                  <Label text="Recent activity" />
+                  <ListView fx:id="activityList" prefHeight="150.0" />
+               </children>
+            </VBox>
+            <Label fx:id="messageLabel" wrapText="true" />
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

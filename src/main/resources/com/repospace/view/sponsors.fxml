@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.repospace.controller.SponsorsController">
+   <content>
+      <VBox spacing="10.0">
+         <padding>
+            <Insets bottom="16.0" left="20.0" right="20.0" top="16.0" />
+         </padding>
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <Button onAction="#handleBack" text="&lt; Back" />
+                  <Label fx:id="titleLabel" styleClass="title" text="Sponsors" />
+               </children>
+            </HBox>
+            <Label fx:id="noteLabel" wrapText="true" />
+            <Label fx:id="introLabel" wrapText="true" />
+            <Label text="Tiers" />
+            <ListView fx:id="tierList" prefHeight="130.0" />
+            <Label fx:id="tierDescriptionLabel" wrapText="true" />
+            <VBox fx:id="supporterBox" spacing="6.0" styleClass="card">
+               <children>
+                  <Label fx:id="pledgeStatusLabel" wrapText="true" />
+                  <TextField fx:id="pledgeMessageField" promptText="A short message (optional)" />
+                  <FlowPane hgap="8.0" vgap="8.0">
+                     <children>
+                        <Button fx:id="sponsorButton" onAction="#handleSponsor" text="Pledge to this tier" />
+                        <Button fx:id="stopButton" onAction="#handleStop" text="Stop sponsoring" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </VBox>
+            <VBox fx:id="ownerBox" spacing="6.0" styleClass="card">
+               <children>
+                  <Label text="Your tiers (only you see this box)" />
+                  <HBox spacing="8.0">
+                     <children>
+                        <TextField fx:id="tierNameField" promptText="Name, for example Coffee" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="tierAmountField" prefWidth="130.0" promptText="Per month" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="tierDescriptionField" promptText="What supporters get (optional)" />
+                  <FlowPane hgap="8.0" vgap="8.0">
+                     <children>
+                        <Button onAction="#handleAddTier" text="Add tier" />
+                        <Button fx:id="deleteTierButton" onAction="#handleDeleteTier" text="Delete selected tier" />
+                     </children>
+                  </FlowPane>
+                  <Label fx:id="totalLabel" wrapText="true" />
+               </children>
+            </VBox>
+            <Label text="Supporters" />
+            <ListView fx:id="supporterList" prefHeight="130.0" />
+            <Label fx:id="myPledgesHeading" text="People you sponsor" />
+            <ListView fx:id="myPledgesList" prefHeight="110.0" />
+            <Label fx:id="messageLabel" wrapText="true" />
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

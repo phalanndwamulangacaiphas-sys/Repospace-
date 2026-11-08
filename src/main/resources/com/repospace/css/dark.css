@@ -1,0 +1,193 @@
+.root {
+    -fx-base: #0f1c40;
+    -fx-background: #0a1430;
+    -fx-control-inner-background: #0d1836;
+    -fx-control-inner-background-alt: #101e42;
+    -fx-text-base-color: #f2f6ff;
+    -fx-accent: #149dfd;
+    -fx-focus-color: #34c3fd;
+    -fx-faint-focus-color: #34c3fd22;
+    -fx-selection-bar: #106ffd;
+    -fx-selection-bar-non-focused: #1b3a85;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.label {
+    -fx-text-fill: #e6edfb;
+}
+
+.label.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.label.tagline {
+    -fx-text-fill: #b8c4e0;
+    -fx-font-size: 13px;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd 60%, #463afc);
+    -fx-background-radius: 8;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 7 16 7 16;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #34c3fd, #1a7bff 60%, #5a4dff);
+}
+.button:pressed {
+    -fx-background-color: #0b57cc;
+}
+.button:disabled {
+    -fx-opacity: 0.5;
+}
+.button:focused {
+    -fx-background-insets: 0;
+}
+
+.hyperlink {
+    -fx-text-fill: #34c3fd;
+}
+.hyperlink:hover {
+    -fx-text-fill: #8fdcff;
+}
+
+.text-field, .password-field, .text-area, .combo-box-base {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #24366b;
+    -fx-background-color: #0d1836;
+    -fx-text-fill: #f2f6ff;
+}
+.text-field:focused, .password-field:focused, .text-area:focused, .combo-box-base:focused {
+    -fx-border-color: #34c3fd;
+    -fx-effect: dropshadow(gaussian, #34c3fd66, 6, 0.3, 0, 0);
+}
+.text-input {
+    -fx-prompt-text-fill: #7f8db0;
+    -fx-text-fill: #f2f6ff;
+}
+.text-area .content {
+    -fx-background-color: #0d1836;
+}
+
+.titled-pane > .title {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd);
+    -fx-background-radius: 6 6 0 0;
+}
+.titled-pane > .title > .text {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+.titled-pane > *.content {
+    -fx-background-color: #0c1734;
+    -fx-border-color: #24366b;
+}
+.list-view, .table-view {
+    -fx-background-color: #0d1836;
+    -fx-border-color: #24366b;
+}
+.list-cell {
+    -fx-text-fill: #e6edfb;
+}
+.list-cell:filled:selected, .list-cell:filled:selected:focused {
+    -fx-background-color: #106ffd;
+    -fx-text-fill: white;
+}
+.split-pane > .split-pane-divider {
+    -fx-background-color: #1b2a55;
+}
+
+.sidebar {
+    -fx-background-color: #050b1b;
+}
+.sidebar .label {
+    -fx-text-fill: #b8c4e0;
+}
+.sidebar .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d6deef;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: normal;
+}
+.sidebar .button:hover {
+    -fx-background-color: #12204a;
+    -fx-text-fill: white;
+}
+.sidebar .button:pressed {
+    -fx-background-color: #106ffd;
+}
+.brand-bg {
+    -fx-background-color: #050b1b;
+    -fx-background-image: url("../images/logo-bg.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+.login-card {
+    -fx-background-color: rgba(5, 11, 27, 0.62);
+    -fx-background-radius: 16;
+    -fx-border-color: #24366b;
+    -fx-border-radius: 16;
+    -fx-padding: 28 30 28 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 24, 0.2, 0, 6);
+}
+.login-card .label {
+    -fx-text-fill: #d6deef;
+}
+.login-card .label.title {
+    -fx-text-fill: #ffffff;
+}
+.login-card .label.message {
+    -fx-text-fill: #ff7b8a;
+}
+.login-card .hyperlink {
+    -fx-text-fill: #34c3fd;
+}
+.login-card .hyperlink:hover {
+    -fx-text-fill: #8fdcff;
+}
+
+.md-text {
+    -fx-fill: #e6edfb;
+}
+.md-code {
+    -fx-font-family: monospace;
+    -fx-background-color: #13244f;
+    -fx-background-radius: 6;
+    -fx-padding: 8 10 8 10;
+}
+.pill {
+    -fx-background-color: #17306b;
+    -fx-text-fill: #cfe1ff;
+    -fx-background-radius: 12;
+    -fx-padding: 2 10 2 10;
+}
+.badge {
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-padding: 3 10 3 10;
+    -fx-font-weight: bold;
+}
+.card {
+    -fx-background-color: #0d1836;
+    -fx-border-color: #b9cdf2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd);
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.message {
+    -fx-text-fill: #ff7b8a;
+}

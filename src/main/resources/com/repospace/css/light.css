@@ -1,0 +1,184 @@
+.root {
+    -fx-base: #e6efff;
+    -fx-background: #f4f8ff;
+    -fx-control-inner-background: #ffffff;
+    -fx-control-inner-background-alt: #f1f6ff;
+    -fx-text-base-color: #050b1b;
+    -fx-accent: #106ffd;
+    -fx-focus-color: #149dfd;
+    -fx-faint-focus-color: #149dfd22;
+    -fx-selection-bar: #106ffd;
+    -fx-selection-bar-non-focused: #a9c8ff;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.label.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0a2a8a;
+}
+
+.label.tagline {
+    -fx-text-fill: #b8c4e0;
+    -fx-font-size: 13px;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd 60%, #463afc);
+    -fx-background-radius: 8;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 7 16 7 16;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #34c3fd, #1a7bff 60%, #5a4dff);
+}
+.button:pressed {
+    -fx-background-color: #0b57cc;
+}
+.button:disabled {
+    -fx-opacity: 0.5;
+}
+.button:focused {
+    -fx-background-insets: 0;
+}
+
+.hyperlink {
+    -fx-text-fill: #106ffd;
+}
+.hyperlink:hover {
+    -fx-text-fill: #34c3fd;
+}
+
+.text-field, .password-field, .text-area, .combo-box-base {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #b9cdf2;
+    -fx-background-color: white;
+}
+.text-field:focused, .password-field:focused, .text-area:focused, .combo-box-base:focused {
+    -fx-border-color: #149dfd;
+    -fx-effect: dropshadow(gaussian, #149dfd55, 6, 0.3, 0, 0);
+}
+.text-input {
+    -fx-prompt-text-fill: #7a8bb0;
+}
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.titled-pane > .title {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd);
+    -fx-background-radius: 6 6 0 0;
+}
+.titled-pane > .title > .text {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+.titled-pane > *.content {
+    -fx-background-color: #f9fbff;
+    -fx-border-color: #b9cdf2;
+}
+.list-view, .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #b9cdf2;
+}
+.list-cell:filled:selected, .list-cell:filled:selected:focused {
+    -fx-background-color: #106ffd;
+    -fx-text-fill: white;
+}
+.split-pane > .split-pane-divider {
+    -fx-background-color: #cfdcf5;
+}
+
+.sidebar {
+    -fx-background-color: #050b1b;
+}
+.sidebar .label {
+    -fx-text-fill: #b8c4e0;
+}
+.sidebar .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d6deef;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: normal;
+}
+.sidebar .button:hover {
+    -fx-background-color: #12204a;
+    -fx-text-fill: white;
+}
+.sidebar .button:pressed {
+    -fx-background-color: #106ffd;
+}
+.brand-bg {
+    -fx-background-color: #050b1b;
+    -fx-background-image: url("../images/logo-bg.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+.login-card {
+    -fx-background-color: rgba(5, 11, 27, 0.62);
+    -fx-background-radius: 16;
+    -fx-border-color: #24366b;
+    -fx-border-radius: 16;
+    -fx-padding: 28 30 28 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 24, 0.2, 0, 6);
+}
+.login-card .label {
+    -fx-text-fill: #d6deef;
+}
+.login-card .label.title {
+    -fx-text-fill: #ffffff;
+}
+.login-card .label.message {
+    -fx-text-fill: #ff7b8a;
+}
+.login-card .hyperlink {
+    -fx-text-fill: #34c3fd;
+}
+.login-card .hyperlink:hover {
+    -fx-text-fill: #8fdcff;
+}
+
+.md-text {
+    -fx-fill: #050b1b;
+}
+.md-code {
+    -fx-font-family: monospace;
+    -fx-background-color: #e3ecff;
+    -fx-background-radius: 6;
+    -fx-padding: 8 10 8 10;
+}
+.pill {
+    -fx-background-color: #dbe8ff;
+    -fx-text-fill: #0a2a8a;
+    -fx-background-radius: 12;
+    -fx-padding: 2 10 2 10;
+}
+.badge {
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-padding: 3 10 3 10;
+    -fx-font-weight: bold;
+}
+.card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b9cdf2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: linear-gradient(to right, #149dfd, #106ffd);
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.message {
+    -fx-text-fill: #c62828;
+}

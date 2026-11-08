@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="8.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.repospace.controller.RepoPageController">
+   <padding>
+      <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+   </padding>
+   <children>
+      <HBox spacing="10.0">
+         <children>
+            <Button onAction="#handleBack" text="&lt; Back" />
+            <Label fx:id="titleLabel" styleClass="title" text="Repository" />
+            <Button fx:id="pinButton" onAction="#handleTogglePin" text="Pin to my page" />
+         </children>
+      </HBox>
+      <Label fx:id="metaLabel" wrapText="true" />
+      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="About and README">
+               <content>
+                  <ScrollPane fitToWidth="true">
+                     <content>
+                        <VBox spacing="8.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Label styleClass="title" text="About" />
+                              <Label fx:id="aboutLabel" wrapText="true" />
+                              <FlowPane fx:id="topicsBox" hgap="6.0" vgap="6.0" />
+                              <Hyperlink fx:id="websiteLink" onAction="#handleOpenWebsite" />
+                              <VBox fx:id="ownerAboutBox" spacing="6.0" styleClass="card">
+                                 <children>
+                                    <Label text="Edit About (only you, the owner, see this)" />
+                                    <TextField fx:id="descriptionField" promptText="Short description (up to 350 characters)" />
+                                    <TextField fx:id="websiteField" promptText="Website, for example https://example.com" />
+                                    <TextField fx:id="topicsField" promptText="Topics separated by commas, for example java, school, javafx" />
+                                    <Button onAction="#handleSaveAbout" text="Save About" />
+                                 </children>
+                              </VBox>
+                              <Label styleClass="title" text="README" />
+                              <Label fx:id="readmeSourceLabel" wrapText="true" />
+                              <VBox fx:id="readmeBox" spacing="8.0" styleClass="card" />
+                              <VBox fx:id="ownerReadmeBox" spacing="6.0" styleClass="card">
+                                 <children>
+                                    <Label text="Write a README here (Markdown). A README.md file in your project folder is used instead once you commit it." wrapText="true" />
+                                    <TextArea fx:id="readmeArea" prefRowCount="8" wrapText="true" />
+                                    <HBox spacing="8.0">
+                                       <children>
+                                          <Button onAction="#handlePreviewReadme" text="Preview" />
+                                          <Button onAction="#handleSaveReadme" text="Save README" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="Releases">
+               <content>
+                  <SplitPane dividerPositions="0.32">
+                     <items>
+                        <VBox spacing="6.0">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <children>
+                              <Label text="Releases (newest first)" />
+                              <ListView fx:id="releaseList" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <ScrollPane fitToWidth="true">
+                           <content>
+                              <VBox spacing="8.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="10.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <children>
+                                    <Label fx:id="releaseTitleLabel" styleClass="title" text="Select a release" wrapText="true" />
+                                    <Label fx:id="releaseMetaLabel" wrapText="true" />
+                                    <VBox fx:id="releaseNotesBox" spacing="8.0" />
+                                    <FlowPane hgap="8.0" vgap="8.0">
+                                       <children>
+                                          <Button fx:id="downloadReleaseButton" onAction="#handleDownloadRelease" text="Download this release (ZIP)..." />
+                                          <Button fx:id="deleteReleaseButton" onAction="#handleDeleteRelease" text="Delete release" />
+                                       </children>
+                                    </FlowPane>
+                                    <VBox fx:id="ownerReleaseBox" spacing="6.0" styleClass="card">
+                                       <children>
+                                          <Label text="New release from the latest saved version" />
+                                          <TextField fx:id="tagField" promptText="Tag, for example v1.0.0" />
+                                          <TextField fx:id="releaseTitleField" promptText="Title (optional)" />
+                                          <TextArea fx:id="releaseNotesArea" prefRowCount="5" promptText="Release notes (Markdown)" wrapText="true" />
+                                          <CheckBox fx:id="prereleaseCheck" text="This is a pre-release" />
+                                          <Button onAction="#handlePublishRelease" text="Publish release" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+            <Tab text="Discussions">
+               <content>
+                  <SplitPane dividerPositions="0.34">
+                     <items>
+                        <VBox spacing="6.0">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <children>
+                              <ComboBox fx:id="categoryFilter" maxWidth="Infinity" onAction="#handleFilterDiscussions" />
+                              <ListView fx:id="discussionList" VBox.vgrow="ALWAYS" />
+                              <VBox spacing="6.0" styleClass="card">
+                                 <children>
+                                    <Label text="Start a discussion" />
+                                    <ComboBox fx:id="newCategoryBox" maxWidth="Infinity" />
+                                    <TextField fx:id="newTitleField" promptText="Title" />
+                                    <TextArea fx:id="newBodyArea" prefRowCount="4" promptText="What would you like to say? (Markdown)" wrapText="true" />
+                                    <Button onAction="#handleStartDiscussion" text="Start discussion" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <ScrollPane fitToWidth="true">
+                           <content>
+                              <VBox spacing="8.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="10.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <children>
+                                    <Label fx:id="threadTitleLabel" styleClass="title" text="Select a discussion" wrapText="true" />
+                                    <Label fx:id="threadMetaLabel" wrapText="true" />
+                                    <VBox fx:id="threadBox" spacing="10.0" />
+                                    <TextArea fx:id="replyArea" prefRowCount="3" promptText="Write a reply (Markdown)" wrapText="true" />
+                                    <FlowPane hgap="8.0" vgap="8.0">
+                                       <children>
+                                          <Button fx:id="replyButton" onAction="#handleReply" text="Reply" />
+                                          <Button fx:id="closeThreadButton" onAction="#handleToggleClosed" text="Close discussion" />
+                                          <Button fx:id="deleteThreadButton" onAction="#handleDeleteDiscussion" text="Delete discussion" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+            <Tab fx:id="wikiTab" text="Wiki">
+               <content>
+                  <SplitPane dividerPositions="0.28">
+                     <items>
+                        <VBox spacing="6.0">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <children>
+                              <Label text="Pages" />
+                              <ListView fx:id="wikiList" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <ScrollPane fitToWidth="true">
+                           <content>
+                              <VBox spacing="8.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="10.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <children>
+                                    <Label fx:id="wikiTitleLabel" styleClass="title" text="Select a wiki page" wrapText="true" />
+                                    <Label fx:id="wikiMetaLabel" wrapText="true" />
+                                    <VBox fx:id="wikiViewBox" spacing="8.0" />
+                                    <VBox fx:id="ownerWikiBox" spacing="6.0" styleClass="card">
+                                       <children>
+                                          <Label text="Write a page (Markdown). Link to another page with [[Page title]]." wrapText="true" />
+                                          <TextField fx:id="wikiTitleField" promptText="Page title" />
+                                          <TextArea fx:id="wikiBodyArea" prefRowCount="8" wrapText="true" />
+                                          <FlowPane hgap="8.0" vgap="8.0">
+                                             <children>
+                                                <Button onAction="#handleNewWikiPage" text="New page" />
+                                                <Button onAction="#handleSaveWiki" text="Save page" />
+                                                <Button fx:id="deleteWikiButton" onAction="#handleDeleteWiki" text="Delete page" />
+                                             </children>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+            <Tab text="Pages">
+               <content>
+                  <VBox spacing="10.0">
+                     <padding>
+                        <Insets bottom="12.0" left="14.0" right="14.0" top="12.0" />
+                     </padding>
+                     <children>
+                        <Label text="Pages shows this repository as a small web site, straight from its latest saved version (index.html, or the README when there is no index.html). The site runs only on this computer while Repospace is open, and only for public repositories." wrapText="true" />
+                        <Label fx:id="pagesStatusLabel" wrapText="true" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                           <children>
+                              <Button fx:id="pagesToggleButton" onAction="#handleTogglePages" text="Turn on Pages" />
+                              <Button fx:id="openSiteButton" onAction="#handleOpenSite" text="Open the site in my browser" />
+                           </children>
+                        </FlowPane>
+                        <Label fx:id="pagesBadgesLabel" wrapText="true" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Label fx:id="messageLabel" wrapText="true" />
+   </children>
+</VBox>

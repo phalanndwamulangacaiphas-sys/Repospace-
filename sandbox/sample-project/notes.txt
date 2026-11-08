@@ -1,0 +1,4 @@
+Meeting notes - week 1
+- Agree on the UML class diagram
+- Split the classes between team members
+- Set up the shared repository
